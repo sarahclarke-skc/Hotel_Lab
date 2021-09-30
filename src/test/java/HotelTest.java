@@ -107,4 +107,20 @@ public class HotelTest {
         assertEquals(false, conferenceRoom.getBooked());
     }
 
+    @Test
+    public void canCheckOutBedroom(){
+        hotel.checkInBedroom(bedroom, guest);
+        hotel.checkOutBedroom(bedroom, guest);
+        assertEquals(0, bedroom.getGuests().size());
+        assertEquals(false, bedroom.getBooked());
+    }
+
+    @Test
+    public void canCheckOutConferenceRoom(){
+        hotel.checkInConferenceRoom(conferenceRoom, guestTwo);
+        hotel.checkOutConferenceRoom(conferenceRoom, guestTwo);
+        assertEquals(0, conferenceRoom.getGuests().size());
+        assertEquals(false, conferenceRoom.getBooked());
+    }
+
 }
