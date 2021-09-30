@@ -40,4 +40,15 @@ public class Hotel {
     public int getNumberOfConferenceRooms() {
         return this.conferenceRooms.size();
     }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void checkInBedroom(Bedroom bedroom, Guest guest){
+        if (!bedroom.getBooked() && guest.getPartySize() < bedroom.getRoomType().getCapacity()){
+            bedroom.getGuests().add(guest);
+            bedroom.setBooked(true);
+        }
+    }
 }

@@ -10,7 +10,7 @@ public class GuestTest {
 
     @Before
     public void before(){
-        guest = new Guest("Tom Smith");
+        guest = new Guest("Tom Smith", 2);
     }
 
     @Test
