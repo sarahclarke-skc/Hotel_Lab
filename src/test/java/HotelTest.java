@@ -1,3 +1,4 @@
+import hotel.Booking;
 import hotel.Guest;
 import hotel.Hotel;
 import org.junit.Before;
@@ -5,6 +6,8 @@ import org.junit.Test;
 import rooms.Bedroom;
 import rooms.ConferenceRoom;
 import rooms.RoomType;
+
+import java.awt.print.Book;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,6 +19,7 @@ public class HotelTest {
     ConferenceRoom conferenceRoom;
     Guest guest;
     Guest guestTwo;
+    Booking booking;
 
     @Before
     public void before(){
@@ -25,6 +29,7 @@ public class HotelTest {
         conferenceRoom = new ConferenceRoom(RoomType.EVENTROOM1);
         guest = new Guest("Tam Smith", 2);
         guestTwo = new Guest("Tommy Towers", 9);
+        booking = new Booking(bedroom, guest, 3);
     }
 
     @Test
@@ -123,4 +128,8 @@ public class HotelTest {
         assertEquals(false, conferenceRoom.getBooked());
     }
 
+    @Test
+    public void canMakeBooking(){
+        assertEquals(true, (hotel.makeBooking(bedroom, guest, 3) instanceof Booking));
+    }
 }

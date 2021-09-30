@@ -2,6 +2,7 @@ package hotel;
 
 import rooms.Bedroom;
 import rooms.ConferenceRoom;
+import rooms.Room;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ public class Hotel {
     private String hotelName;
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
+    Booking booking;
 
     public Hotel(String hotelName) {
         this.hotelName = hotelName;
@@ -71,5 +73,9 @@ public class Hotel {
             conferenceRoom.getGuests().remove(guest);
             conferenceRoom.setBooked(false);
         }
+    }
+
+    public Booking makeBooking(Room room, Guest guest, int duration){
+        return booking = new Booking(room, guest, duration);
     }
 }
