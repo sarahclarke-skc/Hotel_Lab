@@ -15,20 +15,34 @@ public class HotelTest {
 
     @Before
     public void before(){
-        hotel = new Hotel();
+        hotel = new Hotel("CodeClan Tower");
         bedroom = new Bedroom(RoomType.DOUBLE, 2);
         conferenceRoom = new ConferenceRoom(RoomType.EVENTROOM2);
     }
 
     @Test
     public void bedroomListStartsAtZero(){
-        int result = hotel.getBedrooms().size();
-        assertEquals(0, result);
+        assertEquals(0, hotel.getNumberOfBedrooms());
     }
 
     @Test
     public void conferenceRoomListStartsAtZero(){
-        int result = hotel.getConferenceRooms().size();
-        assertEquals(0, result);
+        assertEquals(0, hotel.getNumberOfConferenceRooms());
+    }
+
+    @Test
+    public void canAddBedrooms(){
+        hotel.addBedrooms(bedroom);
+        hotel.addBedrooms(bedroom);
+        hotel.addBedrooms(bedroom);
+        assertEquals(3, hotel.getNumberOfBedrooms());
+    }
+
+    @Test
+    public void canAddConferenceRooms(){
+        hotel.addConferenceRooms(conferenceRoom);
+        hotel.addConferenceRooms(conferenceRoom);
+        hotel.addConferenceRooms(conferenceRoom);
+        assertEquals(3, hotel.getNumberOfConferenceRooms());
     }
 }

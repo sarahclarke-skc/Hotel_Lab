@@ -7,10 +7,12 @@ import java.util.ArrayList;
 
 public class Hotel {
 
+    private String hotelName;
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
 
-    public Hotel() {
+    public Hotel(String hotelName) {
+        this.hotelName = hotelName;
         this.bedrooms = new ArrayList<>();
         this.conferenceRooms = new ArrayList<>();
     }
@@ -23,11 +25,19 @@ public class Hotel {
         this.bedrooms.add(bedroom);
     }
 
+    public int getNumberOfBedrooms(){
+        return this.bedrooms.size();
+    }
+
     public ArrayList<ConferenceRoom> getConferenceRooms() {
         return conferenceRooms;
     }
 
     public void addConferenceRooms(ConferenceRoom conferenceRoom) {
         this.conferenceRooms.add(conferenceRoom);
+    }
+
+    public int getNumberOfConferenceRooms() {
+        return this.conferenceRooms.size();
     }
 }
