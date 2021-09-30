@@ -51,4 +51,11 @@ public class Hotel {
             bedroom.setBooked(true);
         }
     }
+
+    public void checkInConferenceRoom(ConferenceRoom conferenceRoom, Guest guest){
+        if (!conferenceRoom.getBooked() && guest.getPartySize() < conferenceRoom.getRoomType().getCapacity()){
+            conferenceRoom.getGuests().add(guest);
+            conferenceRoom.setBooked(true);
+        }
+    }
 }

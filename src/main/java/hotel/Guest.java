@@ -14,6 +14,10 @@ public class Guest {
         return partySize;
     }
 
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
+    }
+
     public String getName() {
         return name;
     }
