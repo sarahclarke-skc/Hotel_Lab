@@ -10,8 +10,8 @@ public abstract class Room {
     private RoomType roomType;
     private Boolean booked;
 
-    public Room(ArrayList<Guest> guests, RoomType roomType) {
-        this.guests = guests;
+    public Room(RoomType roomType) {
+        this.guests = new ArrayList<>();
         this.roomType = roomType;
         this.booked = false;
     }
