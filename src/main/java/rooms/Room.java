@@ -8,10 +8,12 @@ public abstract class Room {
 
     private ArrayList<Guest> guests;
     private RoomType roomType;
+    private Boolean booked;
 
     public Room(ArrayList<Guest> guests, RoomType roomType) {
         this.guests = guests;
         this.roomType = roomType;
+        this.booked = false;
     }
 
     public ArrayList<Guest> getGuests() {
@@ -26,7 +28,11 @@ public abstract class Room {
         return roomType;
     }
 
-    public void setRoomType(RoomType roomType) {
-        this.roomType = roomType;
+    public Boolean getBooked() {
+        return booked;
+    }
+
+    public void setBooked(Boolean booked) {
+        this.booked = booked;
     }
 }
