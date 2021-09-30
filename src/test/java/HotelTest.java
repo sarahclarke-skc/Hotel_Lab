@@ -22,7 +22,7 @@ public class HotelTest {
         hotel = new Hotel("CodeClan Tower");
         bedroom = new Bedroom(RoomType.DOUBLE, 2);
         bedroomTwo = new Bedroom(RoomType.SINGLE, 1);
-        conferenceRoom = new ConferenceRoom(RoomType.EVENTROOM2);
+        conferenceRoom = new ConferenceRoom(RoomType.EVENTROOM1);
         guest = new Guest("Tam Smith", 2);
         guestTwo = new Guest("Tommy Towers", 9);
     }
@@ -66,7 +66,7 @@ public class HotelTest {
     }
 
     @Test
-    public void canNotCheckInTwice(){
+    public void canNotCheckInToBedroomTwice(){
         hotel.checkInBedroom(bedroom, guest);
         assertEquals(1, bedroom.getGuests().size());
         assertEquals(true, bedroom.getBooked());
@@ -76,7 +76,7 @@ public class HotelTest {
     }
 
     @Test
-    public void canNotBookIfPartySizeTooLarge(){
+    public void canNotBookIntoBedroomIfPartySizeTooLarge(){
         hotel.checkInBedroom(bedroomTwo, guest);
         assertEquals(0, bedroom.getGuests().size());
         assertEquals(false, bedroom.getBooked());
@@ -88,4 +88,23 @@ public class HotelTest {
         assertEquals(1, conferenceRoom.getGuests().size());
         assertEquals(true, conferenceRoom.getBooked());
     }
+
+    @Test
+    public void canNotCheckInToConferenceTwice(){
+        hotel.checkInConferenceRoom(conferenceRoom, guestTwo);
+        assertEquals(1, conferenceRoom.getGuests().size());
+        assertEquals(true, conferenceRoom.getBooked());
+        hotel.checkInConferenceRoom(conferenceRoom, guestTwo);
+        assertEquals(1, conferenceRoom.getGuests().size());
+        assertEquals(true, conferenceRoom.getBooked());
+    }
+
+    @Test
+    public void canNotBookIntoConferenceIfPartySizeTooLarge(){
+        guestTwo.setPartySize(11);
+        hotel.checkInConferenceRoom(conferenceRoom, guestTwo);
+        assertEquals(0, conferenceRoom.getGuests().size());
+        assertEquals(false, conferenceRoom.getBooked());
+    }
+
 }
